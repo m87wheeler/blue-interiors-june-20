@@ -1,26 +1,143 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// Tool Imports
+import React, { useState, useEffect } from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import styled, { createGlobalStyle } from "styled-components"
 
-function App() {
+// Page Imports
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Services from "./pages/Services"
+import Projects from "./pages/Projects"
+import Blog from "./pages/Blog"
+import Inspiration from "./pages/Inspiration"
+import Contact from "./pages/Contact"
+
+// Component Imports
+import NavToggle from "./components/NavToggle"
+import MainNav from "./components/MainNav"
+import Footer from "./components/Footer"
+
+const GlobalReset = createGlobalStyle`
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  `
+
+const GlobalStyles = createGlobalStyle`
+    html {
+      --text-black: #000;
+      --text-white: #fff;
+      --primary: #566573;
+      --primary-rgb: 86, 101, 115;
+      --box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      --ls-wide: 1rem;
+      --ls-normal: .5rem;
+      --ls-narrow: .1rem;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+`
+
+const AppWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  overflow-x: hidden;
+`
+const PageWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  transition: filter 0.2s ease-in-out;
+`
+
+const App = () => {
+  const [navOpen, setNavOpen] = useState(false)
+  // fetch data states
+  const [blogLoading, setBlogLoading] = useState(true)
+  const [blogData, setBlogData] = useState([])
+  const [projLoading, setprojLoading] = useState(true)
+  const [projectData, setProjectData] = useState([])
+
+  const navToggle = () => {
+    setNavOpen(!navOpen)
+  }
+
+  useEffect(() => {
+    fetch(
+      "https://api.cosmicjs.com/v1/0206e2d0-74c0-11ea-8c41-cf1a15c2a736/objects?pretty=true&hide_metafields=true&type=blog-posts&read_key=rJuCAICzaLkFBbQv9WflxvHiMWsivSEb8fO2vhT9UFA39BpIDp&limit=20&props=slug,title,content,metadata,"
+    )
+      .then(res => res.json())
+      .then(data => {
+        setBlogData(data.objects)
+        setBlogLoading(false)
+      })
+      .catch(err => {
+        console.log(`An error has occured: ${err}`)
+      })
+  }, [blogLoading])
+
+  useEffect(() => {
+    fetch(
+      "https://api.cosmicjs.com/v1/0206e2d0-74c0-11ea-8c41-cf1a15c2a736/objects?pretty=true&hide_metafields=true&type=project-posts&read_key=rJuCAICzaLkFBbQv9WflxvHiMWsivSEb8fO2vhT9UFA39BpIDp&limit=20&props=slug,title,content,metadata,"
+    )
+      .then(res => res.json())
+      .then(data => {
+        setProjectData(data.objects)
+        setprojLoading(false)
+      })
+      .catch(err => console.log(err))
+  }, [projLoading])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <GlobalReset />
+      <GlobalStyles />
+      <AppWrapper>
+        <Router>
+          <NavToggle handleClick={navToggle} navIsOpen={navOpen} />
+          <MainNav navIsOpen={navOpen} />
+          <PageWrapper style={{ filter: navOpen ? "blur(5px)" : null }}>
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={props => (
+                  <Home
+                    blogLoading={blogLoading}
+                    projectLoading={projLoading}
+                    blogData={blogData}
+                    projectData={projectData}
+                  />
+                )}
+              />
+              <Route path="/about" component={About} />
+              <Route path="/services" component={Services} />
+              <Route path="/projects" component={Projects} />
+              <Route path="/blog" component={Blog} />
+              <Route path="/inspiration" component={Inspiration} />
+              <Route path="/contact" component={Contact} />
+            </Switch>
+            <Footer />
+          </PageWrapper>
+        </Router>
+      </AppWrapper>
+    </React.Fragment>
+  )
 }
 
-export default App;
+export default App
