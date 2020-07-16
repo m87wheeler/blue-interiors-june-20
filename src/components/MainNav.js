@@ -19,6 +19,15 @@ const NavContainer = styled.nav`
       height: calc(100vh - 2rem);
       transition: all 0s linear;
     `}
+
+  @media ( min-width: 1280px ) {
+    position: fixed;
+    top: 2rem;
+    left: 30%;
+    width: 70%;
+    height: 6rem;
+    z-index: 99999;
+  }
 `
 
 const NavExpand = styled.div`
@@ -37,6 +46,10 @@ const NavExpand = styled.div`
     css`
       transform: scaleX(50) scaleY(50);
     `}
+
+  @media (min-width: 1280px) {
+    display: none;
+  }
 `
 
 const closeAnim = keyframes`
@@ -74,6 +87,18 @@ const NavUnorderedList = styled.ul`
       opacity: 1;
       animation: ${openAnim} 0s linear forwards;
     `}
+
+  @media (min-width: 1280px) {
+    position: fixed;
+    top: -7.95rem;
+    left: 30%;
+    width: 50%;
+    height: 6rem;
+    opacity: 1;
+    animation: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
 `
 
 const NavLink = styled.li`
@@ -85,6 +110,17 @@ const NavLink = styled.li`
   letter-spacing: var(--ls-normal);
   color: var(--text-white);
   text-align: center;
+
+  @media (min-width: 1280px) {
+    width: 14rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-black);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `
 
 const MainNav = props => {

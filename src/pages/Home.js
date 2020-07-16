@@ -8,6 +8,11 @@ import FlipTile from "../components/FlipTile"
 const HomeContainer = styled.div`
   width: 100%;
   min-height: 200vh;
+  @media (min-width: 600px) {
+  }
+  @media (min-width: 800px) {
+    padding: 0 15%;
+  }
 `
 
 const FullSectionLink = styled.p`

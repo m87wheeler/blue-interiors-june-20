@@ -1,3 +1,8 @@
+## Media Query Breakpoints
+
+No media query = modile portrait
+@media (min-width: 400px) = small tablet
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

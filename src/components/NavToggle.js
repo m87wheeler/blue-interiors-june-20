@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled, { css } from "styled-components"
 
 const ToggleContainer = styled.div`
@@ -42,10 +42,13 @@ const Bar = styled.div`
       background: var(--primary);
     `}
 `
-
 const NavToggle = props => {
-  return (
-    <ToggleContainer onClick={props.handleClick} navIsOpen={props.navIsOpen}>
+  return props.mediaWidth < 1280 ? (
+    <ToggleContainer
+      onClick={props.handleClick}
+      navIsOpen={props.navIsOpen}
+      media={props.mediaWidth}
+    >
       <Hamburger>
         <Bar style={{ top: "0" }} navIsOpen={props.navIsOpen} />
         <Bar
@@ -55,7 +58,7 @@ const NavToggle = props => {
         <Bar style={{ bottom: "0" }} navIsOpen={props.navIsOpen} />
       </Hamburger>
     </ToggleContainer>
-  )
+  ) : null
 }
 
 export default NavToggle

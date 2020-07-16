@@ -35,6 +35,8 @@ const GlobalStyles = createGlobalStyle`
       --ls-wide: 1rem;
       --ls-normal: .5rem;
       --ls-narrow: .1rem;
+      --font-serif: 'Playfair Display', serif;;
+      --font-sans-serif: "Poppins", sans-serif;
     }
 
     ul {
@@ -49,13 +51,21 @@ const GlobalStyles = createGlobalStyle`
     a {
       text-decoration: none;
     }
+
+    body {
+      background: white;
+      @media (min-width: 600px) {
+      }
+      @media (min-width: 800px) {
+      }
+    }
 `
 
 const AppWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-sans-serif);
   font-size: 16px;
   overflow-x: hidden;
 `
@@ -67,6 +77,10 @@ const PageWrapper = styled.div`
 
 const App = () => {
   const [navOpen, setNavOpen] = useState(false)
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  })
   // fetch data states
   const [blogLoading, setBlogLoading] = useState(true)
   const [blogData, setBlogData] = useState([])
@@ -76,6 +90,19 @@ const App = () => {
   const navToggle = () => {
     setNavOpen(!navOpen)
   }
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      })
+    }
+    window.addEventListener("resize", handleResize, false)
+    return _ => {
+      window.removeEventListener("resize", handleResize, false)
+    }
+  })
 
   useEffect(() => {
     fetch(
@@ -109,8 +136,12 @@ const App = () => {
       <GlobalStyles />
       <AppWrapper>
         <Router>
-          <NavToggle handleClick={navToggle} navIsOpen={navOpen} />
-          <MainNav navIsOpen={navOpen} />
+          <NavToggle
+            handleClick={navToggle}
+            navIsOpen={navOpen}
+            mediaWidth={dimensions.width}
+          />
+          <MainNav navIsOpen={navOpen} mediaWidth={dimensions.width} />
           <PageWrapper style={{ filter: navOpen ? "blur(5px)" : null }}>
             <Switch>
               <Route

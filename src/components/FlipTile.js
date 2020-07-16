@@ -18,6 +18,10 @@ const FlipTileContainer = styled.div`
   margin-bottom: 0.5rem;
   perspective: 1000px;
   background: #eee;
+  @media (min-width: 1280px) {
+    width: 60%;
+    margin-left: 20%;
+  }
 `
 
 const FlipTileInner = styled.div`

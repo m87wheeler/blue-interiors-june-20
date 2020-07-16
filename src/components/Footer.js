@@ -9,6 +9,12 @@ const FooterContainer = styled.footer`
   margin-top: 5rem;
   background-color: var(--primary);
   text-align: center;
+  @media (min-width: 600px) {
+    height: 90vh;
+  }
+  @media (min-width: 600px) {
+    height: 35vh;
+  }
 `
 
 const DevLogoContainer = styled.div`
