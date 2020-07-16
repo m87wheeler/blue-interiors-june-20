@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+// import {PageView, initGA} from '../../Tracking/Tracking';
+import "./Home.css"
 import styled from "styled-components"
 
 import LandingPage from "../components/LandingPage"
@@ -42,30 +45,40 @@ const Home = props => {
 
   const loadBlogPostData = () => {
     return blogData.map(post => (
-      <FlipTile
-        key={post.slug}
-        title={post.title}
-        postDate={post.metadata.published}
-        blurb={post.metadata.post_blurb}
-        link={""}
-        postImg={post.metadata.post_image.imgix_url}
-        backgroundColor={"#566573"}
-      />
+      <Link to={`/${post.slug}`}>
+        <FlipTile
+          key={post.slug}
+          title={post.title}
+          postDate={post.metadata.published}
+          blurb={post.metadata.post_blurb}
+          link={""}
+          postImg={post.metadata.post_image.imgix_url}
+          backgroundColor={"#566573"}
+        />
+      </Link>
     ))
   }
 
   const loadProjectPostData = () => {
     return projectData.map(post => (
-      <FlipTile
-        key={post.slug}
-        title={post.title}
-        blurb={post.metadata.post_blurb}
-        link={""}
-        postImg={post.metadata.post_thumbnail.imgix_url}
-        backgroundImg={post.metadata.post_mood_image.imgix_url}
-      />
+      <Link to={`/${post.slug}`}>
+        <FlipTile
+          key={post.slug}
+          title={post.title}
+          blurb={post.metadata.post_blurb}
+          link={""}
+          postImg={post.metadata.post_thumbnail.imgix_url}
+          backgroundImg={post.metadata.post_mood_image.imgix_url}
+        />
+      </Link>
     ))
   }
+
+  // ***** needs updating for functional component *****
+  // componentDidMount() {
+  //   initGA('UA-145904610-2');
+  //   PageView();
+  // }
 
   return (
     <HomeContainer>
