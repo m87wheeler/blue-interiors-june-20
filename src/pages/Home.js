@@ -105,7 +105,7 @@ const Home = props => {
       ) : (
         <NothingHere>There doesn't seem to be anything here...</NothingHere>
       )}
-      <FullSectionLink>SEe my full list of projects</FullSectionLink>
+      <FullSectionLink>See my full list of projects</FullSectionLink>
     </HomeContainer>
   )
 }

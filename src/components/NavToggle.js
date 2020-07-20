@@ -11,7 +11,7 @@ const ToggleContainer = styled.div`
   border-radius: 100%;
   box-shadow: var(--box-shadow);
   cursor: pointer;
-  z-index: 11;
+  z-index: 9999;
 
   ${props =>
     props.navIsOpen &&

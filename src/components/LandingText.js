@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 import PrimaryButton from "./PrimaryButton"
@@ -38,7 +39,9 @@ const LandingText = ({ className }) => {
         Contact me to see how I can help you love your home again, no matter how
         big or small.
       </StyledP>
-      <PrimaryButton primary>View Services</PrimaryButton>
+      <Link to="/services">
+        <PrimaryButton primary>View Services</PrimaryButton>
+      </Link>
     </section>
   )
 }

@@ -13,6 +13,7 @@ import Inspiration from "./pages/Inspiration"
 import Contact from "./pages/Contact"
 
 // Component Imports
+import PageWrapper from "./components/PageWrapper"
 import NavToggle from "./components/NavToggle"
 import MainNav from "./components/MainNav"
 import Footer from "./components/Footer"
@@ -68,11 +69,6 @@ const AppWrapper = styled.div`
   font-family: var(--font-sans-serif);
   font-size: 16px;
   overflow-x: hidden;
-`
-const PageWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-  transition: filter 0.2s ease-in-out;
 `
 
 const App = () => {
@@ -135,6 +131,19 @@ const App = () => {
       <GlobalReset />
       <GlobalStyles />
       <AppWrapper>
+        <div
+          style={{
+            position: "fixed",
+            top: "0",
+            left: "0",
+            width: "8rem",
+            height: "3rem",
+            background: "pink",
+            zIndex: "99999",
+          }}
+        >
+          {`${dimensions.width}px wide`}
+        </div>
         <Router>
           <NavToggle
             handleClick={navToggle}
@@ -142,7 +151,7 @@ const App = () => {
             mediaWidth={dimensions.width}
           />
           <MainNav navIsOpen={navOpen} mediaWidth={dimensions.width} />
-          <PageWrapper style={{ filter: navOpen ? "blur(5px)" : null }}>
+          <PageWrapper navIsOpen={navOpen}>
             <Switch>
               <Route
                 path="/"

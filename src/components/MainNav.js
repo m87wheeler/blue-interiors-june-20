@@ -12,6 +12,7 @@ const NavContainer = styled.nav`
   z-index: 10;
   transition: all 0s linear;
   transition-delay: 0.2s;
+  z-index: 999;
 
   ${props =>
     props.navIsOpen &&
@@ -22,11 +23,14 @@ const NavContainer = styled.nav`
 
   @media ( min-width: 1280px ) {
     position: fixed;
-    top: 2rem;
-    left: 30%;
-    width: 70%;
-    height: 6rem;
-    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    background: white;
+    transition: none;
+    overflow: visible;
+    z-index: 99;
   }
 `
 
@@ -39,7 +43,7 @@ const NavExpand = styled.div`
   background: rgba(var(--primary-rgb), 0.98);
   border-radius: 100%;
   transition: all 0.2s ease-in-out;
-  z-index: 5;
+  z-index: 999;
 
   ${props =>
     props.navIsOpen &&
@@ -79,7 +83,7 @@ const NavUnorderedList = styled.ul`
   animation-delay: 0.3s;
   opacity: 0;
   transition: opacity 0.1s ease;
-  z-index: 10;
+  z-index: 9999;
 
   ${props =>
     props.navIsOpen &&
@@ -89,15 +93,19 @@ const NavUnorderedList = styled.ul`
     `}
 
   @media (min-width: 1280px) {
-    position: fixed;
-    top: -7.95rem;
-    left: 30%;
-    width: 50%;
-    height: 6rem;
-    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0;
+    width: auto;
+    height: 100%;
+    z-index: 9999;
     animation: none;
-    display: flex;
-    flex-wrap: wrap;
+    opacity: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 2.5rem);
+    padding: 2.25rem 0;
   }
 `
 
@@ -112,7 +120,7 @@ const NavLink = styled.li`
   text-align: center;
 
   @media (min-width: 1280px) {
-    width: 14rem;
+    width: 13rem;
     font-size: 1rem;
     font-weight: 700;
     color: var(--text-black);
