@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 import LandingPage from "../components/LandingPage"
@@ -8,8 +9,7 @@ import FlipTile from "../components/FlipTile"
 const HomeContainer = styled.div`
   width: 100%;
   min-height: 200vh;
-  @media (min-width: 600px) {
-  }
+
   @media (min-width: 800px) {
     padding: 0 15%;
   }
@@ -61,14 +61,16 @@ const Home = props => {
 
   const loadProjectPostData = () => {
     return projectData.map(post => (
-      <FlipTile
-        key={post.slug}
-        title={post.title}
-        blurb={post.metadata.post_blurb}
-        link={""}
-        postImg={post.metadata.post_thumbnail.imgix_url}
-        backgroundImg={post.metadata.post_mood_image.imgix_url}
-      />
+      <Link to="">
+        <FlipTile
+          key={post.slug}
+          title={post.title}
+          blurb={post.metadata.post_blurb}
+          link={""}
+          postImg={post.metadata.post_thumbnail.imgix_url}
+          backgroundImg={post.metadata.post_mood_image.imgix_url}
+        />
+      </Link>
     ))
   }
 
