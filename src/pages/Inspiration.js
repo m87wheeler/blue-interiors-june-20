@@ -11,9 +11,7 @@ const Projects = props => {
   return (
     <PageWrapper>
       <PageHeader text="Inspiration" />
-      <p style={{ textAlign: "center" }}>
-        This will be the inspiration section.
-      </p>
+      <p style={{ textAlign: "center" }}>Page coming soon.</p>
     </PageWrapper>
   )
 }

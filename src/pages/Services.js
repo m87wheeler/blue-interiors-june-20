@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components"
 import serviceArray from "../assets/api/servicesArray"
 
 import PageWrapper from "../components/PageWrapper"
@@ -18,7 +17,7 @@ const services = serviceArray.map(svc => {
       ))}
       servicesList={svc.servicesList.map(li => (
         <li>{li}</li>
-      ))} // requires a key - not working
+      ))}
     />
   )
 })

@@ -9,7 +9,6 @@ const Wrapper = styled.section`
   height: auto;
   min-height: 100vh;
   padding-top: 8rem;
-  background: seagreen;
 `
 
 const LogoContainer = styled.div`

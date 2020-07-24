@@ -1,5 +1,22 @@
 import React, { useState } from "react"
-import styled from "styled-components"
+import { Link } from "react-router-dom"
+import styled, { css } from "styled-components"
+
+const ReadMore = styled.p`
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  color: #566573;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #566573;
+    color: white;
+  }
+`
 
 const FlipInAndOut = styled.div`
   position: absolute;
@@ -9,7 +26,6 @@ const FlipInAndOut = styled.div`
   height: 100%;
   backface-visibility: hidden;
   overflow: hidden;
-  cursor: pointer;
 `
 
 const FlipTileContainer = styled.div`
@@ -18,6 +34,7 @@ const FlipTileContainer = styled.div`
   margin-bottom: 0.5rem;
   perspective: 1000px;
   background: #eee;
+
   @media (min-width: 1280px) {
     width: 60%;
     margin-left: 20%;
@@ -110,18 +127,9 @@ const FlipTile = props => {
             >
               {props.blurb}
             </p>
-            <p
-              style={{
-                letterSpacing: "0.1em",
-                fontWeight: "700",
-                marginTop: "1rem",
-                color: props.backgroundColor
-                  ? "var(--text-white)"
-                  : "var(--text-black)",
-              }}
-            >
-              READ MORE
-            </p>
+            <Link to={`blog/${props.linkTo}`}>
+              <ReadMore>READ MORE</ReadMore>
+            </Link>
           </span>
         </FlipTileBack>
       </FlipTileInner>

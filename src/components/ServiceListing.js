@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import Button from "./PrimaryButton"
+import PrimaryButton from "./PrimaryButton"
 
 const ListingContainer = styled.div`
   padding: 5vh 5%;
@@ -21,15 +22,17 @@ const ListingContainer = styled.div`
 const ListingHeader = styled.h4`
   width: 100%;
   font-size: 1.5em;
-  line-height: 0.8em;
-  font-weight: 300;
+  line-height: 1.5rem;
+  font-weight: 400;
   letter-spacing: 0.2em;
   color: $text;
-  border-bottom: 3px solid $primaryDark;
+  border-bottom: 3px solid #566573;
   margin-bottom: 4vh;
+  padding-bottom: 0.5rem;
 
   @media (min-width: 880px) {
     grid-area: service-title;
+    height: 2rem;
   }
 `
 const ServiceImage = styled.div`
@@ -63,13 +66,6 @@ const ServiceText = styled.div`
   }
 `
 
-const ServiceEnquiry = styled(Button)`
-  @media (min-width: 800px) {
-    grid-area: service-button;
-    max-height: 47px;
-  }
-`
-
 function ServiceListing(props) {
   return (
     <ListingContainer>
@@ -83,7 +79,9 @@ function ServiceListing(props) {
         <ul>{props.servicesList}</ul>
       </ServiceText>
       <Link to="/contact">
-        <ServiceEnquiry primary>Make An Enquiry</ServiceEnquiry>
+        <PrimaryButton primary wide>
+          Make An Enquiry
+        </PrimaryButton>
       </Link>
     </ListingContainer>
   )

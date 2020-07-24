@@ -22,6 +22,11 @@ const PortraitImage = styled.img`
   height: auto;
   margin: 0 10% 3rem;
 
+  @media (min-width: 600px) and (orientation: portrait) {
+    max-width: 50%;
+    margin: 0 auto 3rem;
+  }
+
   @media (min-width: 800px) {
     grid-column: 1 / span 1;
     grid-row: 1 / span 9;

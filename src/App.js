@@ -7,12 +7,15 @@ import styled, { createGlobalStyle } from "styled-components"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Services from "./pages/Services"
-import Projects from "./pages/Projects"
-import Blog from "./pages/Blog"
+import ProjectCollection from "./pages/ProjectCollection"
+import Project from "./pages/Project"
+import BlogCollection from "./pages/BlogCollection"
+import BlogPost from "./pages/BlogPost"
 import Inspiration from "./pages/Inspiration"
 import Contact from "./pages/Contact"
 
 // Component Imports
+import ScrollToTop from "./assets/logic/ScrollToTop"
 import PageWrapper from "./components/PageWrapper"
 import NavToggle from "./components/NavToggle"
 import MainNav from "./components/MainNav"
@@ -145,6 +148,7 @@ const App = () => {
           {`${dimensions.width}px wide`}
         </div>
         <Router>
+          <ScrollToTop />
           <NavToggle
             handleClick={navToggle}
             navIsOpen={navOpen}
@@ -167,8 +171,14 @@ const App = () => {
               />
               <Route path="/about" component={About} />
               <Route path="/services" component={Services} />
-              <Route path="/projects" component={Projects} />
-              <Route path="/blog" component={Blog} />
+              <Route path="/projects" exact>
+                <ProjectCollection loading={projLoading} data={projectData} />
+              </Route>
+              <Route path="/projects/:slug" component={Project} />
+              <Route path="/blog" exact>
+                <BlogCollection loading={blogLoading} data={blogData} />
+              </Route>
+              <Route path="/blog/:slug" component={BlogPost} />
               <Route path="/inspiration" component={Inspiration} />
               <Route path="/contact" component={Contact} />
             </Switch>

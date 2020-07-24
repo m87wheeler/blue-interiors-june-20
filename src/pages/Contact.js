@@ -1,17 +1,24 @@
 import React from "react"
-// import styled from "styled-components"
+import styled from "styled-components"
 
-// Page Imports
-
-// Component Imports
 import PageWrapper from "../components/PageWrapper"
 import PageHeader from "../components/PageHeader.js"
+import ContactForm from "../components/ContactForm"
 
-const Projects = props => {
+const ContactFormContainer = styled.main`
+  width: 100%;
+  height: auto;
+  background-color: #566573;
+  padding: 10vh 0;
+`
+
+const Projects = () => {
   return (
     <PageWrapper>
       <PageHeader text="Contact" />
-      <p style={{ textAlign: "center" }}>This will be the contact section.</p>
+      <ContactFormContainer>
+        <ContactForm />
+      </ContactFormContainer>
     </PageWrapper>
   )
 }

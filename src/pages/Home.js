@@ -52,7 +52,7 @@ const Home = props => {
         title={post.title}
         postDate={post.metadata.published}
         blurb={post.metadata.post_blurb}
-        link={""}
+        linkTo={post.slug}
         postImg={post.metadata.post_image.imgix_url}
         backgroundColor={"#566573"}
       />
@@ -61,16 +61,13 @@ const Home = props => {
 
   const loadProjectPostData = () => {
     return projectData.map(post => (
-      <Link to="">
-        <FlipTile
-          key={post.slug}
-          title={post.title}
-          blurb={post.metadata.post_blurb}
-          link={""}
-          postImg={post.metadata.post_thumbnail.imgix_url}
-          backgroundImg={post.metadata.post_mood_image.imgix_url}
-        />
-      </Link>
+      <FlipTile
+        title={post.title}
+        blurb={post.metadata.post_blurb}
+        linkTo={post.slug}
+        postImg={post.metadata.post_thumbnail.imgix_url}
+        backgroundImg={post.metadata.post_mood_image.imgix_url}
+      />
     ))
   }
 
@@ -93,7 +90,9 @@ const Home = props => {
         <NothingHere>There doesn't seem to be anything here...</NothingHere>
       )}
 
-      <FullSectionLink>See my full blog</FullSectionLink>
+      <Link to="/blog">
+        <FullSectionLink>See all of my blog posts</FullSectionLink>
+      </Link>
       <SectionIntroText
         title="Recent Project Posts"
         content="An introduction to what your project posts are about, what to expect from them, and the kind of things you hope your readers can learn from them."
@@ -107,7 +106,9 @@ const Home = props => {
       ) : (
         <NothingHere>There doesn't seem to be anything here...</NothingHere>
       )}
-      <FullSectionLink>See my full list of projects</FullSectionLink>
+      <Link to="/projects">
+        <FullSectionLink>See my full list of projects</FullSectionLink>
+      </Link>
     </HomeContainer>
   )
 }
