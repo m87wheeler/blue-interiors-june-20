@@ -2,7 +2,6 @@
 import React from "react"
 import styled from "styled-components"
 
-// import PageWrapper from "../components/PageWrapper"
 import PageHeader from "../components/PageHeader"
 import portraitImage from "../assets/images/hero-images/portrait-image.jpg"
 
@@ -44,7 +43,7 @@ const AboutParagraph = styled.p`
   }
 `
 
-const About = props => {
+const About = () => {
   return (
     <React.Fragment>
       <PageHeader text="About Me" />

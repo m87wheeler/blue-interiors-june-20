@@ -4,7 +4,6 @@ import styled from "styled-components"
 
 import { createMarkup } from "../assets/logic/createMarkup"
 import { dateFormat } from "../assets/logic/dateFormat"
-import PageWrapper from "../components/PageWrapper"
 import PrimaryButton from "../components/PrimaryButton"
 
 const BlogPostContainer = styled.main`
@@ -212,44 +211,42 @@ const BlogPost = props => {
   }, [loading, url])
 
   return (
-    <PageWrapper>
-      <BlogPostContainer>
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <article className="post-container">
-            <div className="post-image">
-              <img
-                src={postData.metadata.post_image.imgix_url}
-                alt={"A photograph representing the topic of the blog post"}
-              />
-            </div>
-
-            <h1>{postData.title.toLowerCase()}</h1>
-
-            <p className="published-date">
-              <span>Posted </span>
-              {dateFormat(postData.metadata.published)}
-            </p>
-
-            <div className="category">
-              <div className="category-border"></div>
-              <h4>{postData.metadata.post_category}</h4>
-            </div>
-
-            <div
-              className="post-content"
-              dangerouslySetInnerHTML={createMarkup(postData.content)}
+    <BlogPostContainer>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <article className="post-container">
+          <div className="post-image">
+            <img
+              src={postData.metadata.post_image.imgix_url}
+              alt={"A photograph representing the topic of the blog post"}
             />
-            <Link to="/blog">
-              <PrimaryButton primary center>
-                GO BACK
-              </PrimaryButton>
-            </Link>
-          </article>
-        )}
-      </BlogPostContainer>
-    </PageWrapper>
+          </div>
+
+          <h1>{postData.title.toLowerCase()}</h1>
+
+          <p className="published-date">
+            <span>Posted </span>
+            {dateFormat(postData.metadata.published)}
+          </p>
+
+          <div className="category">
+            <div className="category-border"></div>
+            <h4>{postData.metadata.post_category}</h4>
+          </div>
+
+          <div
+            className="post-content"
+            dangerouslySetInnerHTML={createMarkup(postData.content)}
+          />
+          <Link to="/blog">
+            <PrimaryButton primary center>
+              GO BACK
+            </PrimaryButton>
+          </Link>
+        </article>
+      )}
+    </BlogPostContainer>
   )
 }
 

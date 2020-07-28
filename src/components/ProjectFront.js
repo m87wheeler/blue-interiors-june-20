@@ -6,8 +6,10 @@ const ProjectFrontContainer = styled.div`
   width: 90%;
   height: auto;
   margin: 6vh 5%;
+  padding-bottom: 5rem;
   overflow: hidden;
   border: 1px solid #999;
+  background: white;
 
   & .mood-image {
     width: 100%;
@@ -82,9 +84,8 @@ const ProjectFrontContainer = styled.div`
     margin: 0 0 1rem 0;
   }
 
-  @media (min-width: 1000px) {
-    max-width: 40vw;
-    width: auto;
+  @media (min-width: 1200px) {
+    width: 100%;
     height: 480px;
   }
 `

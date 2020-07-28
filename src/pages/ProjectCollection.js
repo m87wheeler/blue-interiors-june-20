@@ -3,18 +3,16 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 import ProjectFront from "../components/ProjectFront"
-import PageWrapper from "../components/PageWrapper"
 import PageHeader from "../components/PageHeader.js"
 
 const ProjectCollectionContainer = styled.section`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 1000px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0 6rem;
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3rem;
 
     &::after {
       content: "";
@@ -38,12 +36,12 @@ const ProjectCollection = props => {
   })
 
   return (
-    <PageWrapper>
-      <PageHeader text="Blog" />
+    <React.Fragment>
+      <PageHeader text="Projects" />
       <ProjectCollectionContainer>
         {props.loading ? <p>Lading...</p> : projectsArray}
       </ProjectCollectionContainer>
-    </PageWrapper>
+    </React.Fragment>
   )
 }
 
