@@ -19,6 +19,7 @@ import NavToggle from "./components/NavToggle"
 import MainLogo from "./components/MainLogo"
 import MainNav from "./components/MainNav"
 import Footer from "./components/Footer"
+import ScrollToTop from "./assets/logic/ScrollToTop"
 
 const GlobalReset = createGlobalStyle`
     * {
@@ -141,10 +142,10 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <GlobalReset />
-      <GlobalStyles />
-
       <Router>
+        <GlobalReset />
+        <GlobalStyles />
+        <ScrollToTop />
         <NavToggle
           handleClick={navToggle}
           navIsOpen={navOpen}
