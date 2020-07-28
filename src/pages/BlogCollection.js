@@ -5,18 +5,16 @@ import styled from "styled-components"
 import { dateFormat } from "../assets/logic/dateFormat"
 
 import BlogFront from "../components/BlogFront"
-import PageWrapper from "../components/PageWrapper"
 import PageHeader from "../components/PageHeader.js"
 
 const BlogCollectionContainer = styled.section`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 1000px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-right: 6%;
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 3rem;
   }
 `
 
@@ -36,12 +34,12 @@ const BlogCollection = props => {
   })
 
   return (
-    <PageWrapper>
+    <React.Fragment>
       <PageHeader text="Blog" />
       <BlogCollectionContainer>
         {props.loading ? <p>Loading...</p> : blogArray}
       </BlogCollectionContainer>
-    </PageWrapper>
+    </React.Fragment>
   )
 }
 

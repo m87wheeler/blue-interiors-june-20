@@ -1,7 +1,6 @@
 import React from "react"
 import serviceArray from "../assets/api/servicesArray"
 
-import PageWrapper from "../components/PageWrapper"
 import PageHeader from "../components/PageHeader.js"
 import ServiceListing from "../components/ServiceListing"
 
@@ -24,10 +23,10 @@ const services = serviceArray.map(svc => {
 
 const Projects = props => {
   return (
-    <PageWrapper>
+    <React.Fragment>
       <PageHeader text="Services" />
       {services}
-    </PageWrapper>
+    </React.Fragment>
   )
 }
 

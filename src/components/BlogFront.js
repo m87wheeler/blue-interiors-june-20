@@ -5,19 +5,10 @@ const BlogFrontContainer = styled.div`
   display: block;
   width: 90%;
   margin-left: 5%;
+  margin-bottom: 3rem;
   height: 90vh;
   padding: 20px 0;
-
-  @media (min-width: 540px) {
-    height: auto;
-    margin-bottom: 5vh;
-  }
-
-  @media (min-width: 912px) {
-    width: 350px;
-    height: 550px;
-    margin-left: 5vw;
-  }
+  background: white;
 
   & .post-image {
     display: block;
@@ -35,12 +26,6 @@ const BlogFrontContainer = styled.div`
       width: inherit;
       height: 232px;
       overflow: hidden;
-
-      & img {
-        min-width: 100%;
-        min-height: 0;
-        width: 100%;
-      }
     }
   }
 
@@ -95,6 +80,16 @@ const BlogFrontContainer = styled.div`
     color: #566573;
     letter-spacing: 0.1em;
     color: #566573;
+  }
+
+  @media (min-width: 600px) {
+    height: auto;
+    margin-bottom: 5vh;
+  }
+
+  @media (min-width: 1200px) {
+    width: 100%;
+    height: 550px;
   }
 `
 

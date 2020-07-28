@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const HeaderTitle = styled.h3`
   width: 70%;
-  margin: 3rem 0 2rem;
+  margin: 13rem 0 2rem;
   padding: 0.5rem 0 0.5rem 1rem;
   background: var(--primary);
   color: var(--text-white);

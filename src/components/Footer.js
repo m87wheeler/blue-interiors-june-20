@@ -14,6 +14,8 @@ const FooterContainer = styled.footer`
   }
   @media (min-width: 600px) {
     height: 35vh;
+    width: 160%;
+    margin-left: -30%;
   }
 `
 
@@ -70,7 +72,7 @@ const Footer = () => {
           <DevTitle>Martin Wheeler Web Development &amp; Design</DevTitle>
         </a>
       </DevLogoContainer>
-      <Sitemap href="/home">SITEMAP</Sitemap>
+      {/* <Sitemap href="/home">SITEMAP</Sitemap> */}
       <Disclaimers>
         <p
           style={{

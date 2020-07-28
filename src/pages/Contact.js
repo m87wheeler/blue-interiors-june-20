@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 
-import PageWrapper from "../components/PageWrapper"
 import PageHeader from "../components/PageHeader.js"
 import ContactForm from "../components/ContactForm"
 
@@ -14,12 +13,12 @@ const ContactFormContainer = styled.main`
 
 const Projects = () => {
   return (
-    <PageWrapper>
+    <React.Fragment>
       <PageHeader text="Contact" />
       <ContactFormContainer>
         <ContactForm />
       </ContactFormContainer>
-    </PageWrapper>
+    </React.Fragment>
   )
 }
 

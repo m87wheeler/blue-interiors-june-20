@@ -67,7 +67,7 @@ const ServiceText = styled.div`
 
 function ServiceListing(props) {
   return (
-    <ListingContainer>
+    <ListingContainer key={props.serviceTitle}>
       <ListingHeader>{props.serviceTitle}</ListingHeader>
       <ServiceImage>
         <img src={props.serviceImage} alt={props.serviceImageAlt} />

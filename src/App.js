@@ -15,8 +15,8 @@ import Inspiration from "./pages/Inspiration"
 import Contact from "./pages/Contact"
 
 // Component Imports
-import PageWrapper from "./components/PageWrapper"
 import NavToggle from "./components/NavToggle"
+import MainLogo from "./components/MainLogo"
 import MainNav from "./components/MainNav"
 import Footer from "./components/Footer"
 
@@ -67,10 +67,21 @@ const GlobalStyles = createGlobalStyle`
 const AppWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   font-family: var(--font-sans-serif);
   font-size: 16px;
   overflow-x: hidden;
+  overflow: hidden;
+
+  @media (min-width: 800px) {
+    padding: 10rem 15% 0;
+  }
+
+  @media (min-width: 1280px) {
+    margin-top: 10rem;
+    padding-top: 0;
+  }
 `
 
 const App = () => {
@@ -132,58 +143,49 @@ const App = () => {
     <React.Fragment>
       <GlobalReset />
       <GlobalStyles />
-      <AppWrapper>
-        <div
-          style={{
-            position: "fixed",
-            top: "0",
-            left: "0",
-            width: "8rem",
-            height: "3rem",
-            background: "pink",
-            zIndex: "99999",
-          }}
-        >
-          {`${dimensions.width}px wide`}
-        </div>
-        <Router>
-          <NavToggle
-            handleClick={navToggle}
-            navIsOpen={navOpen}
-            mediaWidth={dimensions.width}
-          />
-          <MainNav navIsOpen={navOpen} mediaWidth={dimensions.width} />
-          <PageWrapper navIsOpen={navOpen}>
-            <Switch>
-              <Route
-                path="/"
-                exact
-                render={props => (
-                  <Home
-                    blogLoading={blogLoading}
-                    projectLoading={projLoading}
-                    blogData={blogData}
-                    projectData={projectData}
-                  />
-                )}
-              />
-              <Route path="/about" component={About} />
-              <Route path="/services" component={Services} />
-              <Route path="/projects" exact>
-                <ProjectCollection loading={projLoading} data={projectData} />
-              </Route>
-              <Route path="/projects/:slug" component={Project} />
-              <Route path="/blog" exact>
-                <BlogCollection loading={blogLoading} data={blogData} />
-              </Route>
-              <Route path="/blog/:slug" component={BlogPost} />
-              <Route path="/inspiration" component={Inspiration} />
-              <Route path="/contact" component={Contact} />
-            </Switch>
-            <Footer />
-          </PageWrapper>
-        </Router>
-      </AppWrapper>
+
+      <Router>
+        <NavToggle
+          handleClick={navToggle}
+          navIsOpen={navOpen}
+          mediaWidth={dimensions.width}
+        />
+        <MainNav
+          navIsOpen={navOpen}
+          mediaWidth={dimensions.width}
+          toggleNav={navToggle}
+        />
+        <AppWrapper>
+          <MainLogo />
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={props => (
+                <Home
+                  blogLoading={blogLoading}
+                  projectLoading={projLoading}
+                  blogData={blogData}
+                  projectData={projectData}
+                />
+              )}
+            />
+            <Route path="/about" component={About} />
+            <Route path="/services" component={Services} />
+            <Route path="/projects" exact>
+              <ProjectCollection loading={projLoading} data={projectData} />
+            </Route>
+            <Route path="/projects/:slug" component={Project} />
+            <Route path="/blog" exact>
+              <BlogCollection loading={blogLoading} data={blogData} />
+            </Route>
+            <Route path="/blog/:slug" component={BlogPost} />
+            <Route path="/inspiration" component={Inspiration} />
+            <Route path="/contact" component={Contact} />
+          </Switch>
+          <Footer />
+        </AppWrapper>
+      </Router>
     </React.Fragment>
   )
 }

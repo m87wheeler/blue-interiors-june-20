@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 import { createMarkup } from "../assets/logic/createMarkup"
-import PageWrapper from "../components/PageWrapper"
 import PrimaryButton from "../components/PrimaryButton"
 
 const ProjectPostContainer = styled.main`
@@ -172,40 +171,38 @@ const Project = props => {
   }, [loading, url])
 
   return (
-    <PageWrapper>
-      <ProjectPostContainer>
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <article className="project-post-container">
-            <div className="project-mood-image">
-              <img
-                src={projectData.metadata.post_mood_image.imgix_url}
-                alt={
-                  "Used to convey the mood, colour palette, or feel of a design or moodboard."
-                }
-              />
-            </div>
-            <div className="project-thumbnail">
-              <img
-                src={projectData.metadata.post_thumbnail.imgix_url}
-                alt={"A photograph of the interior or project so far."}
-              />
-            </div>
-            <h1>{projectData.title}</h1>
-            <div
-              className="post-content"
-              dangerouslySetInnerHTML={createMarkup(projectData.content)}
+    <ProjectPostContainer>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <article className="project-post-container">
+          <div className="project-mood-image">
+            <img
+              src={projectData.metadata.post_mood_image.imgix_url}
+              alt={
+                "Used to convey the mood, colour palette, or feel of a design or moodboard."
+              }
             />
-            <Link to="/projects">
-              <PrimaryButton primary center>
-                GO BACK
-              </PrimaryButton>
-            </Link>
-          </article>
-        )}
-      </ProjectPostContainer>
-    </PageWrapper>
+          </div>
+          <div className="project-thumbnail">
+            <img
+              src={projectData.metadata.post_thumbnail.imgix_url}
+              alt={"A photograph of the interior or project so far."}
+            />
+          </div>
+          <h1>{projectData.title}</h1>
+          <div
+            className="post-content"
+            dangerouslySetInnerHTML={createMarkup(projectData.content)}
+          />
+          <Link to="/projects">
+            <PrimaryButton primary center>
+              GO BACK
+            </PrimaryButton>
+          </Link>
+        </article>
+      )}
+    </ProjectPostContainer>
   )
 }
 

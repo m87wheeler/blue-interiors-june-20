@@ -6,15 +6,6 @@ import LandingPage from "../components/LandingPage"
 import SectionIntroText from "../components/SectionIntroText"
 import FlipTile from "../components/FlipTile"
 
-const HomeContainer = styled.div`
-  width: 100%;
-  min-height: 200vh;
-
-  @media (min-width: 800px) {
-    padding: 0 15%;
-  }
-`
-
 const FullSectionLink = styled.p`
   color: var(--primary);
   font-weight: 400;
@@ -75,7 +66,7 @@ const Home = props => {
   }
 
   return (
-    <HomeContainer>
+    <React.Fragment>
       <LandingPage />
       <SectionIntroText
         title="Recent Blog Posts"
@@ -112,7 +103,7 @@ const Home = props => {
       <Link to="/projects">
         <FullSectionLink>See my full list of projects</FullSectionLink>
       </Link>
-    </HomeContainer>
+    </React.Fragment>
   )
 }
 
