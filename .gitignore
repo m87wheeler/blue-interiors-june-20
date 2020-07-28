@@ -23,4 +23,4 @@ yarn-error.log*
 .netlify
 
 #other
-.site-todo.txt
+.site-todo
