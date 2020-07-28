@@ -198,7 +198,9 @@ const Project = props => {
               dangerouslySetInnerHTML={createMarkup(projectData.content)}
             />
             <Link to="/projects">
-              <PrimaryButton primary>GO BACK</PrimaryButton>
+              <PrimaryButton primary center>
+                GO BACK
+              </PrimaryButton>
             </Link>
           </article>
         )}

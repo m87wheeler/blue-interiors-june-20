@@ -55,6 +55,7 @@ const Home = props => {
         linkTo={post.slug}
         postImg={post.metadata.post_image.imgix_url}
         backgroundColor={"#566573"}
+        section="blog"
       />
     ))
   }
@@ -62,11 +63,13 @@ const Home = props => {
   const loadProjectPostData = () => {
     return projectData.map(post => (
       <FlipTile
+        key={post.slug}
         title={post.title}
         blurb={post.metadata.post_blurb}
         linkTo={post.slug}
         postImg={post.metadata.post_thumbnail.imgix_url}
         backgroundImg={post.metadata.post_mood_image.imgix_url}
+        section="projects"
       />
     ))
   }

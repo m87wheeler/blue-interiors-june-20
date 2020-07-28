@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import Button from "./PrimaryButton"
 import PrimaryButton from "./PrimaryButton"
 
 const ListingContainer = styled.div`

@@ -9,66 +9,72 @@ const Wrapper = styled.section`
   height: auto;
   min-height: 100vh;
   padding-top: 8rem;
+  background: red;
 `
 
 const LogoContainer = styled.div`
   position: absolute;
   top: 5rem;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 19rem;
   height: 19rem;
   z-index: 99;
 
   @media (min-width: 800px) {
-    top: 2rem;
-    height: 9rem;
+    top: 1rem;
+    left: 15%;
+    transform: none;
+    width: 9.6rem;
+    height: 9.6rem;
   }
+
   @media (min-width: 1280px) {
     position: fixed;
-    top: 0;
+    top: 1rem;
     left: 15%;
-    width: auto;
-    height: auto;
   }
 `
 
 const MainLogo = styled.img`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
   width: 15rem;
+  height: 15rem;
+  margin-left: 2rem;
+  filter: brightness(1000%);
+
   @media (min-width: 800px) {
-    filter: brightness(0);
-    width: auto;
+    width: 7rem;
     height: 7rem;
+    margin-left: 1.3rem;
+    filter: none;
   }
   @media (min-width: 1280px) {
-    top: 1rem;
-    left: calc(0.9rem + 15%);
-    transform: none;
+    top: 0;
   }
 `
 
 const LogoText = styled.h1`
-  position: absolute;
   top: 15.5rem;
   left: 0;
-  width: 100%;
   font-weight: 300;
   font-size: 2.5rem;
   color: var(--text-white);
   text-transform: uppercase;
   letter-spacing: var(--ls-normal);
-  text-align: center;
+  margin-left: 1.6rem;
+
   @media (min-width: 800px) {
     font-size: 1rem;
     top: 7.25rem;
-    color: var(--text-black);
+    margin-left: 0.4rem;
+    color: var(--primary);
+    font-weight: 400;
   }
+
   @media (min-width: 1280px) {
-    left: 15%;
-    top: 8.25rem;
+    left: 0;
+    top: 7rem;
     display: inline-block;
     width: 9.25rem;
   }

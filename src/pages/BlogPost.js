@@ -119,7 +119,7 @@ const BlogPostContainer = styled.main`
 
     table {
       max-width: 90%;
-      margin: 0 5%;
+      margin: 0 5% 2rem;
       text-align: left !important;
       border: 2px solid black;
 
@@ -242,7 +242,9 @@ const BlogPost = props => {
               dangerouslySetInnerHTML={createMarkup(postData.content)}
             />
             <Link to="/blog">
-              <PrimaryButton primary>GO BACK</PrimaryButton>
+              <PrimaryButton primary center>
+                GO BACK
+              </PrimaryButton>
             </Link>
           </article>
         )}

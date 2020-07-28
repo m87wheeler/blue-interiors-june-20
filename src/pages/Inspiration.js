@@ -4,15 +4,15 @@ import React from "react"
 // Page Imports
 
 // Component Imports
-import PageWrapper from "../components/PageWrapper"
+// import PageWrapper from "../components/PageWrapper"
 import PageHeader from "../components/PageHeader.js"
 
 const Projects = props => {
   return (
-    <PageWrapper>
+    <React.Fragment>
       <PageHeader text="Inspiration" />
-      <p style={{ textAlign: "center" }}>Page coming soon.</p>
-    </PageWrapper>
+      <p style={{ textAlign: "center" }}>Page coming soon.</p> */}
+    </React.Fragment>
   )
 }
 

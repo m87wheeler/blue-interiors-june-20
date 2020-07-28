@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
 const ReadMore = styled.p`
   letter-spacing: 0.1em;
@@ -127,7 +127,7 @@ const FlipTile = props => {
             >
               {props.blurb}
             </p>
-            <Link to={`blog/${props.linkTo}`}>
+            <Link to={`/${props.section}/${props.linkTo}`}>
               <ReadMore>READ MORE</ReadMore>
             </Link>
           </span>

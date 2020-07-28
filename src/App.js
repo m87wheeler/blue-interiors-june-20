@@ -15,7 +15,6 @@ import Inspiration from "./pages/Inspiration"
 import Contact from "./pages/Contact"
 
 // Component Imports
-import ScrollToTop from "./assets/logic/ScrollToTop"
 import PageWrapper from "./components/PageWrapper"
 import NavToggle from "./components/NavToggle"
 import MainNav from "./components/MainNav"
@@ -148,7 +147,6 @@ const App = () => {
           {`${dimensions.width}px wide`}
         </div>
         <Router>
-          <ScrollToTop />
           <NavToggle
             handleClick={navToggle}
             navIsOpen={navOpen}
