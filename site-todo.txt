@@ -1,0 +1,31 @@
+BLUE INTERIORS SITE TODO
+------------------------
+
+DESKTOP:
+
+ 1. (-) Change logo to Blue (increase brightness 100% on mobile)
+ 2. (-) Add SITEMAP 
+ 3. (-) Add ScrollToTop function
+ 4. (-) Project links on "Home" directing to /blog instead of /projects
+ 5. (M) Improve "About" paragraph layout
+ 6. (L) Better highligh on enquiry buttons in "Services"  
+ 7. (-) Check styling in Project Listing section (one item smaller than others)
+ 8. (L) Max image sizes in "Project Post"
+ 9. (L) Style spacing between blockquotes in "Project Post"
+10. (-) Center "Go Back" button in "Project Post"
+11. (-) Spacing of flex items in Blog Listing section
+12. (M) "Blog Post" first image size reduced
+13. (-) Remove large-letter styling from lists in "Blog Post"
+14. (-) Center "Go Back" button in "Blog Post"
+15. (L) Improve "Contact Form" styling
+16. (-) Logo Responsiveness
+ 
+ MOBILE:
+
+
+
+
+ CLIENT:
+ 1. Revisit posts and use proper CosmicJS styling tools
+ 2. Write Blog and Projects introduction for "Home"
+ 3. 
