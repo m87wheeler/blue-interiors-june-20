@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import PrimaryButton from "./PrimaryButton"
+import Button from "./Button"
 
 const FormContainer = styled.form`
   width: 100%;
@@ -80,7 +80,7 @@ const FormContainer = styled.form`
   }
 `
 
-const CenterButton = styled(PrimaryButton)`
+const CenterButton = styled(Button)`
   display: block;
   margin: 0 auto;
 `

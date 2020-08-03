@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-import PrimaryButton from "./PrimaryButton"
+import Button from "./Button"
 
 const StyledH6 = styled.h6`
   font-family: var(--font-sans-serif);
@@ -40,7 +40,7 @@ const LandingText = ({ className }) => {
         big or small.
       </StyledP>
       <Link to="/services">
-        <PrimaryButton primary>View Services</PrimaryButton>
+        <Button primary>View Services</Button>
       </Link>
     </section>
   )

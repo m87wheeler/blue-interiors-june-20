@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import { createMarkup } from "../assets/logic/createMarkup"
 import { dateFormat } from "../assets/logic/dateFormat"
-import PrimaryButton from "../components/PrimaryButton"
+import Button from "../components/Button"
 
 const BlogPostContainer = styled.main`
   margin: 5vh 0 0;
@@ -240,9 +240,9 @@ const BlogPost = props => {
             dangerouslySetInnerHTML={createMarkup(postData.content)}
           />
           <Link to="/blog">
-            <PrimaryButton primary center>
+            <Button primary center>
               GO BACK
-            </PrimaryButton>
+            </Button>
           </Link>
         </article>
       )}

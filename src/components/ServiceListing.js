@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import PrimaryButton from "./PrimaryButton"
+import Button from "./Button"
 
 const ListingContainer = styled.div`
   padding: 5vh 5%;
@@ -78,9 +78,12 @@ function ServiceListing(props) {
         <ul>{props.servicesList}</ul>
       </ServiceText>
       <Link to="/contact">
-        <PrimaryButton primary wide>
+        <Button border wide style={{ marginBottom: "1rem" }}>
+          See An Example
+        </Button>
+        <Button primary wide>
           Make An Enquiry
-        </PrimaryButton>
+        </Button>
       </Link>
     </ListingContainer>
   )

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 import { createMarkup } from "../assets/logic/createMarkup"
-import PrimaryButton from "../components/PrimaryButton"
+import Button from "../components/Button"
 
 const ProjectPostContainer = styled.main`
   grid-area: page;
@@ -196,9 +196,9 @@ const Project = props => {
             dangerouslySetInnerHTML={createMarkup(projectData.content)}
           />
           <Link to="/projects">
-            <PrimaryButton primary center>
+            <Button primary center>
               GO BACK
-            </PrimaryButton>
+            </Button>
           </Link>
         </article>
       )}

@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 
-const Button = styled.button`
+const StyledButton = styled.button`
   display: inline-block;
   padding: 1rem 2rem;
   text-transform: uppercase;
@@ -20,6 +20,21 @@ const Button = styled.button`
     css`
       background: var(--primary);
       color: var(--text-white);
+      border: 3px solid var(--primary);
+    `}
+
+  ${props =>
+    props.border &&
+    css`
+      background: var(--text-white);
+      color: var(--primary);
+      border: 3px solid var(--primary);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background: var(--primary);
+        color: var(--text-white);
+      }
     `}
 
   ${props =>
@@ -38,12 +53,18 @@ const Button = styled.button`
       `}
 `
 
-const PrimaryButton = props => {
+const Button = props => {
   return (
-    <Button center={props.center} primary={props.primary} wide={props.wide}>
+    <StyledButton
+      center={props.center}
+      primary={props.primary}
+      border={props.border}
+      wide={props.wide}
+      style={props.style}
+    >
       {props.children}
-    </Button>
+    </StyledButton>
   )
 }
 
-export default PrimaryButton
+export default Button
