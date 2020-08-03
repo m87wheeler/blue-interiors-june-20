@@ -78,9 +78,9 @@ function ServiceListing(props) {
         <ul>{props.servicesList}</ul>
       </ServiceText>
       <Link to="/contact">
-        <Button border wide style={{ marginBottom: "1rem" }}>
+        {/* <Button border wide style={{ marginBottom: "1rem" }}>
           See An Example
-        </Button>
+        </Button> */}
         <Button primary wide>
           Make An Enquiry
         </Button>
