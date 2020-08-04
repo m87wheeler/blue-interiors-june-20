@@ -7,6 +7,7 @@ import { dateFormat } from "../assets/logic/dateFormat"
 import Button from "../components/Button"
 
 const BlogPostContainer = styled.main`
+  padding-top: 30vh;
   margin: 5vh 0 0;
   width: 100%;
 
@@ -17,7 +18,9 @@ const BlogPostContainer = styled.main`
   & .post-image {
     width: 90%;
     margin: 0 5%;
-    height: auto;
+    height: 0;
+    padding-bottom: 75%;
+    overflow: hidden;
 
     img {
       max-width: 100%;
@@ -81,12 +84,14 @@ const BlogPostContainer = styled.main`
     }
 
     blockquote {
-      font-family: "Playfair Display", serif;
-      font-size: 2em;
-      line-height: 1.5em;
-      width: 80%;
-      margin: 0 10%;
-      text-align: center;
+      p {
+        font-family: "Playfair Display", serif;
+        font-size: 2em;
+        line-height: 1.5em;
+        width: 80%;
+        margin: 0 10%;
+        text-align: center;
+      }
 
       p:nth-of-type(1):first-child:first-letter {
         color: #070707;
@@ -161,6 +166,12 @@ const BlogPostContainer = styled.main`
           line-height: 1.5em;
         }
 
+        blockquote {
+          p {
+            font-size: 2.5rem;
+          }
+        }
+
         img {
           margin-left: 50%;
           transform: translateX(-50%);
@@ -204,7 +215,6 @@ const BlogPost = props => {
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         setPostData(data.object)
         setLoading(false)
       })

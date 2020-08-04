@@ -6,19 +6,33 @@ const BlogFrontContainer = styled.div`
   width: 90%;
   margin-left: 5%;
   margin-bottom: 3rem;
-  height: 90vh;
+  min-height: 80vh;
+  height: auto;
   padding: 20px 0;
   background: white;
 
   & .post-image {
+    position: relative;
     display: block;
     width: 100%;
-    height: auto;
+    height: 0;
+    padding-bottom: 75%;
+    overflow: hidden;
 
     & img {
-      min-width: 100%;
-      min-height: 100%;
+      position: absolute;
+      top: 0%;
+      left: 0;
+    }
+
+    & .portrait-img {
       width: 100%;
+      height: auto;
+    }
+
+    & .landscape-img {
+      height: 100%;
+      width: auto;
     }
 
     @media (min-width: 912px) {
@@ -94,14 +108,23 @@ const BlogFrontContainer = styled.div`
 `
 
 const BlogFront = props => {
+  // calculates orientation of img before loading and assigns dynamic classname
+  const loadedImg = new Image()
+  loadedImg.src = props.imgsrc
+  const orientation =
+    loadedImg.height > loadedImg.width ? "portrait" : "landscape"
+
+  const portraitImage = (
+    <img
+      src={loadedImg.src}
+      alt="A photograph representing the topic of the blog post"
+      className={`${orientation}-img`}
+    />
+  )
+
   return (
     <BlogFrontContainer>
-      <div className="post-image">
-        <img
-          src={props.imgsrc}
-          alt={"A photograph representing the topic of the blog post"}
-        />
-      </div>
+      <div className="post-image">{portraitImage}</div>
       <div className="category">
         <div className="category-border"></div>
         <h4>{props.category}</h4>
