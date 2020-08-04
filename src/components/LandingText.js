@@ -13,9 +13,11 @@ const StyledH6 = styled.h6`
 `
 
 const StyledH2 = styled.h2`
+  position: relative;
   font-family: var(--font-serif);
   font-size: 3rem;
   font-weight: 400;
+  z-index: 10;
 `
 
 const StyledP = styled.p`
@@ -27,9 +29,9 @@ const StyledP = styled.p`
   padding: 2rem 0;
 `
 
-const LandingText = ({ className }) => {
+const LandingText = props => {
   return (
-    <section className={className}>
+    <section className={props.className}>
       <StyledH6>Interior Design Service</StyledH6>
       <StyledH2>
         I believe that good design can and should be beautiful, functional, and

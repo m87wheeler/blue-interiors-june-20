@@ -12,10 +12,10 @@ const services = serviceArray.map(svc => {
       serviceImage={svc.image}
       serviceImageAlt={svc.imgAlt}
       description={svc.description.map(p => (
-        <p>{p}</p>
+        <p key={p}>{p}</p>
       ))}
       servicesList={svc.servicesList.map(li => (
-        <li>{li}</li>
+        <li key={li}>{li}</li>
       ))}
     />
   )

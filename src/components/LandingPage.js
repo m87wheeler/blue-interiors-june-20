@@ -1,19 +1,23 @@
 import React from "react"
 import styled from "styled-components"
 
-import MainLogo from "../components/MainLogo"
 import landingImage from "../assets/images/hero-images/hero-mobile.png"
 import LandingText from "./LandingText"
 
 const LandingSection = styled.section`
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   padding-top: -10rem;
 
   @media (min-width: 800px) {
     height: calc(90vh - 10rem);
     z-index: 9;
+  }
+
+  @media (min-width: 1200px) {
+    top: -15vh;
   }
 `
 
@@ -22,7 +26,7 @@ const LangingImageContainer = styled.div`
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  z-index: 999;
+  z-index: 0;
 
   @media (min-width: 600px) {
     width: 100%;
@@ -34,7 +38,7 @@ const LangingImageContainer = styled.div`
     left: 38%;
     width: 85%;
     height: 60vh;
-    z-index: 99;
+    z-index: 1;
   }
   @media (min-width: 1200px) {
     left: 50%;
@@ -66,49 +70,6 @@ const LandingImage = styled.img`
   }
 `
 
-const LandingMainLogo = styled(MainLogo)`
-  position: relative;
-  width: 100%;
-  height: 100%;
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  & img,
-  & h1 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-  }
-
-  & img {
-    top: 8rem;
-    width: 16rem;
-    height: 16rem;
-    filter: brightness(1000%);
-  }
-
-  & h1 {
-    top: 25rem;
-    font-size: 2.2rem;
-    color: var(--text-white);
-  }
-
-  @media (min-width: 800px) {
-    display: none;
-  }
-`
-
 const PositionLandingText = styled(LandingText)`
   display: none;
   @media (min-width: 800px) {
@@ -120,7 +81,7 @@ const PositionLandingText = styled(LandingText)`
     width: 80%;
     max-height: 30rem;
     height: auto;
-    z-index: 10;
+    z-index: 12;
   }
 
   @media (min-width: 800px) {
@@ -132,13 +93,12 @@ const PositionLandingText = styled(LandingText)`
   }
 `
 
-const Landing = () => {
+const Landing = props => {
   return (
     <LandingSection>
       <PositionLandingText />
       <LangingImageContainer>
         <LandingImage src={landingImage} alt="home interior" />
-        <LandingMainLogo />
       </LangingImageContainer>
     </LandingSection>
   )

@@ -1,4 +1,5 @@
 import React from "react"
+import { useLocation } from "react-router-dom"
 import styled from "styled-components"
 
 import mainLogo from "../assets/images/vector-images/logo384.png"
@@ -26,6 +27,49 @@ const LogoContainer = styled.div`
     top: 1rem;
     position: fixed;
     background: transparent;
+  }
+`
+
+const LandingMainLogo = styled(LogoContainer)`
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  & img,
+  & h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  & img {
+    top: 8rem;
+    width: 16rem;
+    height: 16rem;
+    filter: brightness(1000%);
+  }
+
+  & h1 {
+    top: 25rem;
+    font-size: 2.2rem;
+    color: var(--text-white);
+  }
+
+  @media (min-width: 800px) {
+    display: none;
   }
 `
 
@@ -72,11 +116,25 @@ const LogoText = styled.h1`
   }
 `
 
-const MainLogo = ({ className }) => (
-  <LogoContainer className={className}>
-    <MainLogoImage src={mainLogo} alt="Blue Interiors Logo" />
-    <LogoText>INTERIORS</LogoText>
-  </LogoContainer>
-)
+const MainLogo = ({ className }) => {
+  let location = useLocation()
+  console.log(location.pathname)
+
+  if (location.pathname === "/") {
+    return (
+      <LandingMainLogo className={className}>
+        <MainLogoImage src={mainLogo} alt="Blue Interiors Logo" />
+        <LogoText>INTERIORS</LogoText>
+      </LandingMainLogo>
+    )
+  } else {
+    return (
+      <LogoContainer className={className}>
+        <MainLogoImage src={mainLogo} alt="Blue Interiors Logo" />
+        <LogoText>INTERIORS</LogoText>
+      </LogoContainer>
+    )
+  }
+}
 
 export default MainLogo

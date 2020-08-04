@@ -67,10 +67,10 @@ const Home = props => {
 
   return (
     <React.Fragment>
-      <LandingPage />
+      <LandingPage style={{ zIndex: "10" }} />
       <SectionIntroText
         title="Recent Blog Posts"
-        content="An introduction to what your blog posts are about, what to expect from them, and the kind of things you hope your readers can learn from them."
+        // content="An introduction to what your blog posts are about, what to expect from them, and the kind of things you hope your readers can learn from them."
       />
       {}
 
@@ -89,7 +89,7 @@ const Home = props => {
       </Link>
       <SectionIntroText
         title="Recent Project Posts"
-        content="An introduction to what your project posts are about, what to expect from them, and the kind of things you hope your readers can learn from them."
+        // content="An introduction to what your project posts are about, what to expect from them, and the kind of things you hope your readers can learn from them."
       />
       {projectData ? (
         isLoading ? (
