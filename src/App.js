@@ -85,7 +85,7 @@ const AppWrapper = styled.div`
   }
 `
 
-const App = () => {
+const App = props => {
   const [navOpen, setNavOpen] = useState(false)
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -159,18 +159,14 @@ const App = () => {
         <AppWrapper>
           <MainLogo />
           <Switch>
-            <Route
-              path="/"
-              exact
-              render={props => (
-                <Home
-                  blogLoading={blogLoading}
-                  projectLoading={projLoading}
-                  blogData={blogData}
-                  projectData={projectData}
-                />
-              )}
-            />
+            <Route path="/" exact>
+              <Home
+                blogLoading={blogLoading}
+                projectLoading={projLoading}
+                blogData={blogData}
+                projectData={projectData}
+              />
+            </Route>
             <Route path="/about" component={About} />
             <Route path="/services" component={Services} />
             <Route path="/projects" exact>

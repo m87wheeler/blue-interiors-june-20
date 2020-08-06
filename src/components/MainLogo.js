@@ -10,7 +10,6 @@ const LogoContainer = styled.div`
   left: 0;
   width: 100%;
   height: 11rem;
-  padding-top: 1rem;
   text-align: center;
   z-index: 99;
 
@@ -120,7 +119,8 @@ const MainLogo = ({ className }) => {
   let location = useLocation()
   console.log(location.pathname)
 
-  if (location.pathname === "/") {
+  if (location.pathname === "/" && window.innerWidth < 800) {
+    console.log("big logo")
     return (
       <LandingMainLogo className={className}>
         <MainLogoImage src={mainLogo} alt="Blue Interiors Logo" />
@@ -128,6 +128,7 @@ const MainLogo = ({ className }) => {
       </LandingMainLogo>
     )
   } else {
+    console.log("small logo")
     return (
       <LogoContainer className={className}>
         <MainLogoImage src={mainLogo} alt="Blue Interiors Logo" />

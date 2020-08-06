@@ -17,7 +17,15 @@ const LandingSection = styled.section`
   }
 
   @media (min-width: 1200px) {
-    top: -15vh;
+    top: -10rem;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 15rem auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      " . . "
+      "intro-text landing-img";
   }
 `
 
@@ -41,8 +49,10 @@ const LangingImageContainer = styled.div`
     z-index: 1;
   }
   @media (min-width: 1200px) {
-    left: 50%;
-    width: 50%;
+    grid-area: landing-img;
+    width: 100%;
+    top: 0;
+    left: 0%;
   }
 `
 
@@ -72,24 +82,26 @@ const LandingImage = styled.img`
 
 const PositionLandingText = styled(LandingText)`
   display: none;
+
   @media (min-width: 800px) {
     display: block;
     position: absolute;
     left: 0%;
     top: 50%;
     transform: translateY(-50%);
-    width: 80%;
+    width: 70%;
     max-height: 30rem;
     height: auto;
     z-index: 12;
   }
 
-  @media (min-width: 800px) {
-    width: 70%;
-  }
-
   @media (min-width: 1280px) {
-    width: 35%;
+    position: relative;
+    top: 0;
+    transform: none;
+    grid-area: intro-text;
+    width: 100%;
+    padding-right: 20%;
   }
 `
 
