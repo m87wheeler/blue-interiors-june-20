@@ -1,25 +1,25 @@
 // Tool Imports
-import React, { useState, useEffect } from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import styled, { createGlobalStyle } from "styled-components"
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import styled, { createGlobalStyle } from 'styled-components'
 
 // Page Imports
-import Home from "./pages/Home"
-import About from "./pages/About"
-import Services from "./pages/Services"
-import ProjectCollection from "./pages/ProjectCollection"
-import Project from "./pages/Project"
-import BlogCollection from "./pages/BlogCollection"
-import BlogPost from "./pages/BlogPost"
-import Inspiration from "./pages/Inspiration"
-import Contact from "./pages/Contact"
+import Home from './pages/Home'
+import About from './pages/About'
+import Services from './pages/Services'
+import ProjectCollection from './pages/ProjectCollection'
+import Project from './pages/Project'
+import BlogCollection from './pages/BlogCollection'
+import BlogPost from './pages/BlogPost'
+import Inspiration from './pages/Inspiration'
+import Contact from './pages/Contact'
 
 // Component Imports
-import NavToggle from "./components/NavToggle"
-import MainLogo from "./components/MainLogo"
-import MainNav from "./components/MainNav"
-import Footer from "./components/Footer"
-import ScrollToTop from "./assets/logic/ScrollToTop"
+import NavToggle from './components/NavToggle'
+import MainLogo from './components/MainLogo'
+import MainNav from './components/MainNav'
+import Footer from './components/Footer'
+import ScrollToTop from './assets/logic/ScrollToTop'
 
 const GlobalReset = createGlobalStyle`
     * {
@@ -108,15 +108,15 @@ const App = props => {
         width: window.innerWidth,
       })
     }
-    window.addEventListener("resize", handleResize, false)
+    window.addEventListener('resize', handleResize, false)
     return _ => {
-      window.removeEventListener("resize", handleResize, false)
+      window.removeEventListener('resize', handleResize, false)
     }
   })
 
   useEffect(() => {
     fetch(
-      "https://api.cosmicjs.com/v1/0206e2d0-74c0-11ea-8c41-cf1a15c2a736/objects?pretty=true&hide_metafields=true&type=blog-posts&read_key=rJuCAICzaLkFBbQv9WflxvHiMWsivSEb8fO2vhT9UFA39BpIDp&limit=20&props=slug,title,content,metadata,"
+      'https://api.cosmicjs.com/v1/0206e2d0-74c0-11ea-8c41-cf1a15c2a736/objects?pretty=true&hide_metafields=true&type=blog-posts&read_key=rJuCAICzaLkFBbQv9WflxvHiMWsivSEb8fO2vhT9UFA39BpIDp&limit=20&props=slug,title,content,metadata,'
     )
       .then(res => res.json())
       .then(data => {
@@ -130,7 +130,7 @@ const App = props => {
 
   useEffect(() => {
     fetch(
-      "https://api.cosmicjs.com/v1/0206e2d0-74c0-11ea-8c41-cf1a15c2a736/objects?pretty=true&hide_metafields=true&type=project-posts&read_key=rJuCAICzaLkFBbQv9WflxvHiMWsivSEb8fO2vhT9UFA39BpIDp&limit=20&props=slug,title,content,metadata,"
+      'https://api.cosmicjs.com/v1/0206e2d0-74c0-11ea-8c41-cf1a15c2a736/objects?pretty=true&hide_metafields=true&type=project-posts&read_key=rJuCAICzaLkFBbQv9WflxvHiMWsivSEb8fO2vhT9UFA39BpIDp&limit=20&props=slug,title,content,metadata,'
     )
       .then(res => res.json())
       .then(data => {
