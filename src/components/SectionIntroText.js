@@ -1,11 +1,18 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 const SectionIntroContainer = styled.div`
   padding: 0 5%;
   text-align: center;
   margin-bottom: 2rem;
   margin-top: 5rem;
+
+  p {
+    @media (min-width: 1200px) {
+      width: 60%;
+      margin-left: 20%;
+    }
+  }
 `
 const SectionIntroTitle = styled.h3`
   width: 80%;
